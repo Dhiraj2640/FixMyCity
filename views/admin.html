@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FixMyCity</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar container">
+            <a href="/" class="logo">
+                <i class="fas fa-map-marker-alt"></i> FixMyCity
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="/admin.html" class="nav-link active">
+                    <i class="fas fa-cog"></i> Admin
+                </a>
+                <div id="userInfo">
+                    <div id="admin-debug" style="display: none;"></div>
+                    <span id="userDisplay"></span>
+                    <button id="logoutBtn" class="btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-header">
+            <h2>Admin Dashboard</h2>
+            <div>
+                <button id="export-btn" class="btn">
+                    <i class="fas fa-file-export"></i> Export Reports
+                </button>
+                <button id="refresh-btn" class="btn">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-clipboard-list fa-2x"></i>
+                <p>Total Reports</p>
+                <h3 id="total-count">0</h3>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock fa-2x"></i>
+                <p>Pending</p>
+                <h3 id="pending-count">0</h3>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-exclamation-circle fa-2x"></i>
+                <p>High Priority</p>
+                <h3 id="priority-count">0</h3>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-check-circle fa-2x"></i>
+                <p>Resolved</p>
+                <h3 id="resolved-count">0</h3>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <div class="table-header">
+                <div class="search-filter">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-issues" placeholder="Search issues...">
+                    </div>
+                    <div class="filter-box">
+                        <i class="fas fa-filter"></i>
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table" id="issues-table">
+                <thead>
+                    <tr>
+                        <th>Issue</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="issues-list">
+                    <tr>
+                        <td colspan="6" class="text-center">Loading issues...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+     
+    <script src="/js/admin.js"></script>
+</body>
+</html>   
+
+
+
+
+
+
+
+
+
+
+
+
